@@ -10,9 +10,10 @@ const refs = {
 
 refs.inputEl.addEventListener("input", onInputChange);
 
+// refs.inputEl.addEventListener("blur", onInputBlur);
+
 function onInputChange(event) {
-  if (refs.titleEl.textContent === null) {
-    refs.titleEl.textContent = "Anonymous";
-  }
-  refs.titleEl.textContent = event.currentTarget.value;
+  event.currentTarget.value === ""
+    ? (refs.titleEl.textContent = "Anonymous")
+    : (refs.titleEl.textContent = event.currentTarget.value);
 }
