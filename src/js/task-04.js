@@ -7,7 +7,7 @@ const counterEl = document.querySelector("#value");
 buttonDecrementEl.addEventListener("click", onClickButtonDecrement);
 buttonIncrementEl.addEventListener("click", onClickButtonIncrement);
 
-function onClickButtonDecrement(counterValue) {
+function onClickButtonDecrement() {
   counterValue -= 1;
   counterEl.textContent = counterValue;
   console.log("- 1 = ", counterValue);
