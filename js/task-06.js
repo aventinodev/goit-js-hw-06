@@ -11,8 +11,17 @@ const inputColorValidEl = document.querySelector("#validation-input.valid");
 inputEl.addEventListener("blur", onInputBlur);
 
 function onInputBlur(event) {
-  console.log(event.currentTarget.value.length);
+  // 1 варіант = працює без перезавантаження
+
   event.currentTarget.value.length === dataLength
-    ? (inputEl.style.borderColor = "#4caf50")
-    : (inputEl.style.borderColor = "#f44336");
+    ? inputEl.classList.toggle("valid") &&
+      inputEl.classList.replace("invalid", "valid")
+    : inputEl.classList.toggle("invalid") &&
+      inputEl.classList.replace("valid", "invalid");
+
+  // 2 варіант = працює при перезавантаженні сторінки
+
+  // event.currentTarget.value.length === dataLength
+  //   ? inputEl.classList.toggle("valid")
+  //   : inputEl.classList.toggle("invalid");
 }
