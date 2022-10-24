@@ -15,9 +15,9 @@ function onInputBlur(event) {
   } else {
     setClass("invalid", "valid");
   }
+  console.log(event.currentTarget);
 }
 
 function setClass(a, b) {
-  inputEl.classList.toggle(a);
-  inputEl.classList.replace(b, a);
+  inputEl.classList.add(a) || inputEl.classList.replace(b, a);
 }
