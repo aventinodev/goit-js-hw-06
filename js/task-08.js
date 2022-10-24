@@ -32,10 +32,20 @@ function onFormSubmit(event) {
   const {
     elements: { email, password },
   } = event.currentTarget;
-  if (email.value === "" || password.value === "") {
-    const message = "Please, fill in all the fields";
+
+  const value = email.value.trim() === "" || password.value.trim() === "";
+  const message = "Please, fill in all the fields";
+  if (value) {
     return alert(message);
   }
   console.log(`Email: ${email.value}, Password: ${password.value}`);
   event.currentTarget.reset();
+
+  // попереднє рішення
+  // if (email.value === "" || password.value === "") {
+  //   const message = "Please, fill in all the fields";
+  //   return alert(message);
+  // }
+  // console.log(`Email: ${email.value}, Password: ${password.value}`);
+  // event.currentTarget.reset();
 }

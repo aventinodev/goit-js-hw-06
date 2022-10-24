@@ -6,22 +6,18 @@
 
 const inputEl = document.querySelector("#validation-input");
 const dataLength = 6;
-const inputColorValidEl = document.querySelector("#validation-input.valid");
 
 inputEl.addEventListener("blur", onInputBlur);
 
 function onInputBlur(event) {
-  // 1 варіант = працює без перезавантаження
+  if (event.currentTarget.value.length === dataLength) {
+    setClass("valid", "invalid");
+  } else {
+    setClass("invalid", "valid");
+  }
+}
 
-  event.currentTarget.value.length === dataLength
-    ? inputEl.classList.toggle("valid") &&
-      inputEl.classList.replace("invalid", "valid")
-    : inputEl.classList.toggle("invalid") &&
-      inputEl.classList.replace("valid", "invalid");
-
-  // 2 варіант = працює при перезавантаженні сторінки
-
-  // event.currentTarget.value.length === dataLength
-  //   ? inputEl.classList.toggle("valid")
-  //   : inputEl.classList.toggle("invalid");
+function setClass(a, b) {
+  inputEl.classList.toggle(a);
+  inputEl.classList.replace(b, a);
 }
